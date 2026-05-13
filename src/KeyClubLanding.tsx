@@ -249,21 +249,21 @@ function Hero() {
   const heroSrc = figmaAsset(ASSETS.hero)
   return (
     <section className="relative w-full bg-white">
-      <div className="flex min-h-0 w-full max-w-[1920px] flex-col lg:flex-row">
-        <div className="relative aspect-[375/308] w-full shrink-0 overflow-hidden lg:hidden">
+      <div className="mx-auto grid min-h-0 w-full max-w-[1920px] grid-cols-1 lg:grid-cols-2">
+        <div className="relative aspect-[375/308] w-full min-h-0 overflow-hidden lg:hidden">
           <img alt="" className="absolute inset-0 size-full object-cover object-center" src={heroSrc} />
         </div>
 
-        <div className="relative order-2 flex min-h-[400px] flex-1 flex-col justify-center gap-4 bg-black px-8 py-10 lg:order-none lg:min-h-[560px] lg:max-w-[50%] lg:px-[180px] lg:py-0">
+        <div className="relative flex min-h-0 w-full flex-col justify-center gap-4 bg-black px-8 py-10 sm:px-10 sm:py-12 lg:min-h-full lg:py-[clamp(2rem,4vw,3.75rem)] max-[1399px]:lg:px-20 min-[1400px]:lg:px-[180px]">
           <h1
-            className="font-['Bebas_Neue',sans-serif] text-[50px] font-normal uppercase leading-[44px] text-white lg:text-[92px] lg:leading-[80px]"
+            className="font-['Bebas_Neue',sans-serif] text-[clamp(2.5rem,9vw,3.125rem)] font-normal uppercase leading-[0.95] text-white min-[1200px]:lg:text-[clamp(3rem,5.5vw+1.5rem,5.75rem)] min-[1200px]:lg:leading-[0.87]"
             style={{ fontFeatureSettings: "'lnum', 'pnum'" }}
           >
             key club members{' '}
             <br className="hidden lg:block" />
             get more
           </h1>
-          <p className="font-['Gill_Sans',sans-serif] text-base font-normal leading-[21px] tracking-[0.4px] text-white lg:text-xl lg:leading-[25px]">
+          <p className="max-w-[52ch] font-['Gill_Sans',sans-serif] text-[clamp(1rem,2.2vw,1.25rem)] font-normal leading-snug tracking-[0.4px] text-white min-[1200px]:lg:text-xl min-[1200px]:lg:leading-[25px]">
             As a Key Club member, you&apos;ll get early access to new drops, VIP offers, birthday gifts and keys (every 10 keys = $1) for
             every $10 you spend.
           </p>
@@ -275,7 +275,7 @@ function Hero() {
           </a>
         </div>
 
-        <div className="relative order-1 hidden min-h-[480px] flex-1 overflow-hidden lg:block lg:min-h-[960px]">
+        <div className="relative hidden min-h-0 w-full overflow-hidden lg:block lg:aspect-[375/308]">
           <img alt="" className="absolute inset-0 size-full object-cover object-center" src={heroSrc} />
         </div>
       </div>
