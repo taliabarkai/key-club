@@ -25,3 +25,5 @@ dist-ssr
 
 # Accidental nested clone path (URL used as folder name)
 https:/
+
+key-club-standalone.html
