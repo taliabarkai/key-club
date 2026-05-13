@@ -32,7 +32,16 @@ const FAQS = [
   },
 ] as const
 
-const NAV_LINKS = ['New In', 'SHOP', 'names & initials', 'gifts', 'sale', 'Stories'] as const
+const NAV_LINKS = [
+  'Best Sellers',
+  'New In',
+  'Shop By',
+  'Necklaces',
+  'Bracelets',
+  'Earrings',
+  'Rings',
+  "Father's Day",
+] as const
 
 const CUSTOMER_CARE = [
   'Help Center',
@@ -48,14 +57,18 @@ const WORLD = ['Our Story', 'Blog', 'Fit Guide', 'Collaborations', 'Sustainabili
 
 const LEGAL = ['Terms & Conditions', 'Privacy Policy'] as const
 
+const OAK_LUNA_LOGO_SRC =
+  'https://cdn.oakandluna.com/digital-asset/banners/SiteLogo_OAL.svg'
+
 function LogoWordmark({ className }: { className?: string }) {
   return (
-    <span
-      className={`font-['Gill_Sans',sans-serif] text-lg font-semibold tracking-[0.2em] text-black ${className ?? ''}`}
-      aria-label="Oak and Luna"
-    >
-      OAK & LUNA
-    </span>
+    <img
+      src={OAK_LUNA_LOGO_SRC}
+      alt="Oak & Luna"
+      height={36}
+      className={`w-auto shrink-0 ${className ?? 'h-[36px]'}`}
+      decoding="async"
+    />
   )
 }
 
@@ -174,15 +187,15 @@ function HeaderDesktop() {
   return (
     <header className="relative z-30 hidden w-full flex-col lg:flex">
       <div className="flex h-10 items-center overflow-hidden bg-black px-8 py-2 text-white">
-        <div className="flex w-[220px] shrink-0 gap-6 font-['Gill_Sans',sans-serif] text-sm font-semibold leading-[18px] tracking-[0.4px]">
-          <span>HELP</span>
-          <span>TRACK MY ORDER</span>
+        <div className="flex w-[220px] shrink-0 font-['Gill_Sans',sans-serif] text-sm font-normal leading-[18px] tracking-[0.4px]">
+          SUBSCRIBE & SAVE
         </div>
         <p className="min-w-0 flex-1 text-center font-['Gill_Sans',sans-serif] text-sm font-semibold leading-[18px] tracking-[0.4px]">
-          ETHICALLY-SOURCED MATERIALS
+          Lab-Grown Diamond. Same Brilliance, Smarter Choice.
         </p>
-        <div className="flex w-[220px] shrink-0 justify-end font-['Gill_Sans',sans-serif] text-sm font-semibold leading-[18px] tracking-[0.4px]">
-          SUBSCRIBE & GET 10% OFF
+        <div className="flex w-[220px] shrink-0 justify-end gap-6 font-['Gill_Sans',sans-serif] text-sm font-normal leading-[18px] tracking-[0.4px]">
+          <span>HELP</span>
+          <span>TRACK MY ORDER</span>
         </div>
       </div>
       <div className="flex items-center justify-between overflow-hidden bg-white px-8 py-2">
@@ -213,17 +226,17 @@ function HeaderMobile() {
     <header className="sticky top-0 z-30 lg:hidden">
       <div className="flex h-8 items-center overflow-hidden bg-black px-2 py-2">
         <p className="w-full text-center font-['Gill_Sans',sans-serif] text-sm font-semibold leading-[18px] tracking-[0.4px] text-white">
-          ETHICALLY-SOURCED MATERIALS
+          Lab-Grown Diamond. Same Brilliance, Smarter Choice.
         </p>
       </div>
       <nav className="relative flex h-11 items-center overflow-hidden bg-white text-black" aria-label="Primary mobile">
-        <button type="button" className="absolute bottom-3 left-3" aria-label="Open menu">
+        <button type="button" className="absolute left-3 top-1/2 -translate-y-1/2" aria-label="Open menu">
           <IconMenu />
         </button>
         <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <LogoWordmark className="text-sm tracking-[0.15em]" />
+          <LogoWordmark className="max-h-[28px] h-auto" />
         </div>
-        <div className="absolute bottom-3 right-3 flex items-center gap-2">
+        <div className="absolute right-3 top-1/2 flex -translate-y-1/2 items-center gap-2">
           <IconSearch />
           <IconBag />
         </div>
@@ -339,7 +352,7 @@ function FaqSection() {
           <span className="hidden font-['Bebas_Neue',sans-serif] text-[50px] font-normal uppercase leading-[44px] lg:inline">FAQ</span>
         </h2>
 
-        <div className="w-full rounded border-[1.5px] border-solid border-[#ebebeb] px-0 py-4 lg:py-5">
+        <div className="w-full rounded border-[1.5px] border-solid border-[#ebebeb] px-0 py-0">
           {FAQS.map((item, i) => {
             const isOpen = open === i
             const panelId = `${baseId}-panel-${i}`
@@ -353,7 +366,7 @@ function FaqSection() {
                     id={headerId}
                     aria-expanded={isOpen}
                     aria-controls={panelId}
-                    className="flex w-full cursor-pointer items-center justify-between gap-3 px-4 py-2 text-left lg:px-4 lg:py-2"
+                    className="flex w-full cursor-pointer items-center justify-between gap-3 px-4 py-4 text-left lg:px-4 lg:py-4"
                     onClick={() => setOpen(isOpen ? null : i)}
                   >
                     <span className="min-w-0 font-['Gill_Sans',sans-serif] text-sm font-semibold leading-[18px] tracking-[0.4px] text-black lg:text-base lg:leading-[21px] lg:tracking-normal">
